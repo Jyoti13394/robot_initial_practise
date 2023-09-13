@@ -34,7 +34,7 @@ Fill the form and navigate to child window
 *** Keywords ***
 Fill the login details
 	[Arguments]    ${user_name}     ${password}
-    Input Text    id:.username  ${user_name}
+    Input Text    id:username  ${user_name}
     Input Password     id:password   ${password}
 
 Fill the login form
@@ -76,5 +76,9 @@ Select the card
 Fill the login details and navigate to next window
     Fill the login details    ${user_name}    ${valid_password}
     Click Element   css:input[value='user']
+    Wait Until Element Is Visible    css:div[class='modal-body']
     Click Element    css:button[class='btn btn-success']
+    Click Button    css:button[class='btn btn-success']
+    #Wait Until Element Is Not Visible    css:div[class='modal-body']
     Select From List By Value    css:select[class='form-control']   teach
+    Select Checkbox    css:input[type='checkbox']
