@@ -7,6 +7,7 @@ Library     SeleniumLibrary
 ${user_name}    rahulshettyacademy
 ${password}     12345678
 ${URL}  https://rahulshettyacademy.com/loginpagePractise/
+${Browser}  Chrome
 
 *** Keywords ***
 Open the browser with url
