@@ -17,7 +17,7 @@ Play Around with dictionary
     log     ${age}
 
 Add book into library database
-    &{request_body}=     Create Dictionary    name=Robotframework    isbn=72786  aisle=32445     author= Jyoti
+    &{request_body}=     Create Dictionary    name=Robotframework    isbn=71786  aisle=32445     author= Jyoti
     ${response}=    POST    ${base_url}/Library/Addbook.php     json=${request_body}    expected_status=200
     log     ${response.json()}
     Dictionary Should Contain Key    ${response.json()}     ID
@@ -29,3 +29,9 @@ Add book into library database
 Get the book details which got added
 	${get_response}=    GET     ${base_url}/Library/GetBook.php     params=ID=${book_id}   expected_status=200
 	log     ${get_response.json()}
+
+Delete the book from the database
+	&{delete_req}=     Create Dictionary    ID=${book_id}
+	${del_resp}=    POST    ${base_url}/Library/DeleteBook.php  json=${delete_req}  expected_status=200
+	log     ${del_resp.json()}
+	Should Be Equal As Strings    book is successfully deleted  ${del_resp.json()}[msg]
