@@ -22,3 +22,4 @@ Add an item to cart
 		${position}=    Evaluate    ${position} + 1
 	END
 	Click Button    xpath:(//*[@class = 'card-footer'])[${position}]/button
+	Click Link    css:li.active a

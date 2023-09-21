@@ -16,10 +16,11 @@ Test Setup    Open Browser and Launch URL
 Fill the login in form and proceed to shop page
 	Fill the login form
 
-Add Product to cart
+Add Product to cart and checkout
 	landingpage.Fill the login form
 	Verify if you have proceeded to shop page
 	Add an item to cart     ${card_name}
+
 
 #*** Keywords ***
 #Fill the login form in landing page with incorrect credential
